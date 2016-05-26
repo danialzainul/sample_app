@@ -11,10 +11,13 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
 
+group :development do
+  gem 'web-console'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
-  gem 'web-console'
   gem 'spring'
 end
 

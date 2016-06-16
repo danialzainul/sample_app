@@ -56,14 +56,8 @@ class UsersController < ApplicationController
 
     # Before filters
 
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+    # def logged_in_user is under application_controller
+    # this is because both user and microposts uses it
 
     # Confirms the correct user.
     def correct_user

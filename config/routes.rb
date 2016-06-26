@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
 
   get 'password_resets/new'
-
   get 'password_resets/edit'
-
   get 'sessions/new'
-
   get 'users/new'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
@@ -28,6 +22,14 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
+
+  # gives us /users/1/following
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
